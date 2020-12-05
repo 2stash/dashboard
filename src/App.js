@@ -31,7 +31,7 @@ const App = () => {
       <div className='container'>
         <div className='wrapper'>
           <header className='main-head'>Dashboard</header>
-          <nav className='main-nav'>
+          <nav className='people-nav'>
             <div>
               <h4>Personnel</h4>
               <ul>
@@ -45,6 +45,8 @@ const App = () => {
                   ))}
               </ul>
             </div>
+            </nav>
+            <nav className="project-nav">
             <div>
               <h4>Project</h4>
               <ul>
@@ -61,7 +63,9 @@ const App = () => {
           </nav>
 
           <Person name={personData} />
+          <div className="people-dept">Department people</div>
           <Project name={projectData}/>
+          <div className="project-dept">Department project</div>
           <footer className='main-footer'>The footer</footer>
         </div>
       </div>

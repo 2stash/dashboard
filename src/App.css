@@ -32,14 +32,28 @@ nav ul {
 .main-head {
   grid-area: header;
 }
+
+.people-nav {
+  grid-area: people-nav;
+}
+
 .people {
   grid-area: people;
 }
-.main-nav {
-  grid-area: nav;
+
+.people-dept {
+  grid-area: people-dept;
+}
+
+.project-nav {
+  grid-area: project-nav
 }
 .project {
   grid-area: project;
+}
+
+.project-dept {
+  grid-area: project-dept;
 }
 
 .main-footer {
@@ -50,9 +64,12 @@ nav ul {
   gap: 20px;
   grid-template-areas:
     "header"
-    "nav"
+    "people-nav"
     "people"
+    "people-dept"
+    "project-nav"
     "project"
+    "project-dept"
     "footer";
 }
 @media (min-width: 500px) {
@@ -60,9 +77,12 @@ nav ul {
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
       "header  header"
-      "nav     nav"
+      "people-nav     people-nav"
       "people people"
+      "people-dept people-dept"
+      "project-nav project-nav"
       "project project"
+      "project-dept project-dept"
       "footer footer";
   }
   nav ul {
@@ -75,8 +95,8 @@ nav ul {
     grid-template-columns: 1fr 2fr 2fr;
     grid-template-areas:
       "header header header"
-      "nav people project"
-      "nav people project"
+      "people-nav people people-dept"
+      "project-nav project project-dept"
       "footer footer footer";
   }
   nav ul {
