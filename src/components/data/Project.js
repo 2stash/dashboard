@@ -1,34 +1,27 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
 import DataContext from "../../context/data/dataContext";
 
-const Person = (props) => {
-  // let { id } = useParams();
-  // console.log(id)
-
+const Project = (props) => {
   const dataContext = useContext(DataContext);
   const { data } = dataContext;
 
   return (
-    <div className='people'>
+    <div className='project'>
       <div>
         <h4>{props.name} Total # of Actions by Project</h4>
         <ul>
           {data &&
-            data.personActionsByProject[props.name].projectList.map(
-              (project, index) => (
-                <li key={`${project}-${index}`}>
-                  {project}:{" "}
-                  {data &&
-                    data.personActionsByProject[props.name].projects[project]
-                      .length}
-                </li>
-              )
-            )}
+            data.peopleArray.map(person => (
+              data.personActionsByProject[person].projects[props.name].map(action => (
+                <li key={action}>{action}</li>
+              ))
+            ))   
+          }
+
         </ul>
       </div>
 
-      <h4>{props.name} Actions</h4>
+      {/* <h4>{props.name} Actions</h4>
       <div>
         {data ? (
           <div>
@@ -40,9 +33,9 @@ const Person = (props) => {
             )}
           </div>
         ) : null}
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default Person;
+export default Project;

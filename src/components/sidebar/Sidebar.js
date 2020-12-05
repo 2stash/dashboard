@@ -16,6 +16,12 @@ const Sidebar = (props) => {
           <li key={person}><Link to="person">{person}</Link></li>
         ))}
       </ul>
+
+      <ul>
+        {data && data.projectsArray.map(project=> (
+          <li key={project}><Link to="project">{project}</Link></li>
+        ))}
+      </ul>
     </nav>
 
 
