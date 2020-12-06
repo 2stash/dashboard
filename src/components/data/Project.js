@@ -7,33 +7,34 @@ const Project = (props) => {
 
   return (
     <div className='project'>
+      <h3 className='personnel-title'>{props.name}</h3>
       <div>
-        <h4>{props.name} Total # of Actions by Project</h4>
-        <ul>
-          {data &&
-            data.peopleArray.map(person => (
-              data.personActionsByProject[person].projects[props.name].map(action => (
-                <li key={action}>{action}</li>
-              ))
-            ))   
-          }
+        <h4 className='personnel-title'>Total # of Actions by Project</h4>
 
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Owner</th>
+              <th>Description</th>
+              <th>Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data &&
+              data.peopleArray.map((person) =>
+                data.personActionsByProject[person].projects[props.name].map(
+                  (action) => (
+                    <tr key={action}>
+                      <td>{data.actions[action].owner}</td>
+                      <td>{data.actions[action].description}</td>
+                      <td>{data.actions[action].hours}</td>
+                    </tr>
+                  )
+                )
+              )}
+          </tbody>
+        </table>
       </div>
-
-      {/* <h4>{props.name} Actions</h4>
-      <div>
-        {data ? (
-          <div>
-            {data.personActionsByProject[
-              props.name
-            ].projectList.map((project, index) =>
-              data.personActionsByProject[props.name].projects[project].map((action) => 
-              <li key={`${index}-${action}`}>{action}</li>)
-            )}
-          </div>
-        ) : null}
-      </div> */}
     </div>
   );
 };

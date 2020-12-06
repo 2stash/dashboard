@@ -1,43 +1,81 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
 import DataContext from "../../context/data/dataContext";
 
 const Person = (props) => {
-  // let { id } = useParams();
-  // console.log(id)
-
   const dataContext = useContext(DataContext);
   const { data } = dataContext;
 
   return (
     <div className='people'>
+      <h3 className='personnel-title'>{props.name}</h3>
       <div>
-        <h4>{props.name} Total # of Actions by Project</h4>
-        <ul>
-          {data &&
-            data.personActionsByProject[props.name].projectList.map(
-              (project, index) => (
-                <li key={`${project}-${index}`}>
-                  {project}:{" "}
-                  {data &&
-                    data.personActionsByProject[props.name].projects[project]
-                      .length}
-                </li>
-              )
-            )}
-        </ul>
+        <h4 className='personnel-title'>Total # of Actions by Project</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Number of Actions</th>
+              <th>Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data &&
+              data.personActionsByProject[props.name].projectList.map(
+                (project, index) => (
+                  <tr key={`${project}-${index}`}>
+                    <td>{project}</td>
+                    <td>
+                      {data &&
+                        data.personActionsByProject[props.name].projects[
+                          project
+                        ].length}
+                    </td>
+                    <td>
+                      {data &&
+                        data.personActionsByProject[props.name].projects[
+                          project
+                        ]
+                          .map((action) => data.actions[action].hours)
+                          .reduce(
+                            (accumulator, reducer) => accumulator + reducer
+                          )}
+                    </td>
+                  </tr>
+                )
+              )}
+          </tbody>
+        </table>
       </div>
 
-      <h4>{props.name} Actions</h4>
+      <h4 className='personnel-title'>High Priority Actions</h4>
       <div>
         {data ? (
           <div>
-            {data.personActionsByProject[
-              props.name
-            ].projectList.map((project, index) =>
-              data.personActionsByProject[props.name].projects[project].map((action) => 
-              <li key={`${index}-${action}`}>{action}</li>)
-            )}
+            <table>
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>Description</th>
+                  <th>Hours</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.personActionsByProject[props.name].projectList.map(
+                  (project, index) =>
+                    data.personActionsByProject[props.name].projects[
+                      project
+                    ].map((action) =>
+                      data.actions[action].priority === "High" ? (
+                        <tr key={`${index}-${action}`}>
+                          <td>{data.actions[action].project}</td>
+                          <td>{data.actions[action].description}</td>
+                          <td>{data.actions[action].hours}</td>
+                        </tr>
+                      ) : null
+                    )
+                )}
+              </tbody>
+            </table>
           </div>
         ) : null}
       </div>

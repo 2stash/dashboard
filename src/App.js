@@ -4,9 +4,10 @@ import "./App.css";
 import STORE from "./STORE";
 import DataContext from "./context/data/dataContext";
 
-import SideBar from "./components/sidebar/Sidebar";
 import Person from "./components/data/Person";
 import Project from "./components/data/Project";
+import People from "./components/charts/People";
+import Projects from "./components/charts/Projects";
 
 const App = () => {
   const dataContext = useContext(DataContext);
@@ -28,32 +29,41 @@ const App = () => {
 
   return (
     <Router>
+      <nav className='main-nav'>
+        <h2>Dan's DashBoard</h2>
+      </nav>
       <div className='container'>
         <div className='wrapper'>
-          <header className='main-head'>Dashboard</header>
           <nav className='people-nav'>
-            <div>
-              <h4>Personnel</h4>
+            <div className='title-div'>
+              <h4 className='title'>Personnel</h4>
               <ul>
                 {data &&
                   data.peopleArray.map((person) => (
-                    <li key={person}>
-                      <button onClick={() => personChangeHandler(person)}>
+                    <li className='nav-li' key={person}>
+                      <button
+                        className='nav-btn'
+                        onClick={() => personChangeHandler(person)}
+                      >
                         {person}
                       </button>
                     </li>
                   ))}
               </ul>
             </div>
-            </nav>
-            <nav className="project-nav">
-            <div>
-              <h4>Project</h4>
+          </nav>
+          <nav className='project-nav'>
+            <div className='title-div'>
+              <h4 className='title'>Project</h4>
+
               <ul>
                 {data &&
                   data.projectsArray.map((project) => (
-                    <li key={project}>
-                      <button onClick={() => projectChangeHandler(project)}>
+                    <li className='nav-li' key={project}>
+                      <button
+                        className='nav-btn'
+                        onClick={() => projectChangeHandler(project)}
+                      >
                         {project}
                       </button>
                     </li>
@@ -63,9 +73,9 @@ const App = () => {
           </nav>
 
           <Person name={personData} />
-          <div className="people-dept">Department people</div>
-          <Project name={projectData}/>
-          <div className="project-dept">Department project</div>
+          <People  />
+          <Project name={projectData} />
+          <Projects />
           <footer className='main-footer'>The footer</footer>
         </div>
       </div>
