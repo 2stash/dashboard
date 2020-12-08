@@ -1,4 +1,4 @@
-import {SET_STORE} from '../types';
+import {SET_STORE, IMPORT_DATA} from '../types';
 
 export default(state, action) => {
   const {type, payload} = action;
@@ -8,6 +8,12 @@ export default(state, action) => {
         ...state,
         data: payload,
         loading: false
+      };
+    case IMPORT_DATA:
+      return {
+        ...state,
+        loadedData: payload,
+        loading: false,
       }
     default: 
       return {...state}
