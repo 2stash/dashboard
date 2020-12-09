@@ -7,7 +7,10 @@ const People = () => {
   const { data } = dataContext;
   const [hoursArray, setHoursArray] = useState([])
   const [dataParsed, setDataParsed] = useState(false);
+  const [chartCreated, setChartsCreated] = useState(false);
 
+  const chartColors = ["red","blue","green"]
+  let chartData = null;
   let employeeList;
   if(data){
     employeeList = data.peopleArray
@@ -21,34 +24,49 @@ const People = () => {
       let projectName = data.projectsArray[i];
       tempTotal = []
       // loop through people
-      data.peopleArray
-      .map(person => (
-        tempTotal.push(data.personActionsByProject[person].projects[projectName]
-        .map(action => data.actions[action].hours).reduce((accumulator, reducer)=> accumulator + reducer))
-      )) 
+         data.peopleArray.forEach(person => {
+
+          if(data.personActionsByProject[person].projects[projectName]){
+            tempTotal.push(data.personActionsByProject[person].projects[projectName].map(action => data.actions[action].hours).reduce((accumulator, reducer)=> accumulator + reducer))
+          } else {
+            tempTotal.push(0)
+          }       
+        })
+
         hours.push(tempTotal)
-    }
+      }
  
-    // [0] project 1 : [person 1, person 2, person 3]
-    // [0] project 2 : [person 1, person 2, person 3]
-    // [0] project 3 : [person 1, person 2, person 3]
-    setHoursArray(hours)
-    setDataParsed(true)
+      // [0] project 1 : [person 1, person 2, person 3]
+      // [0] project 2 : [person 1, person 2, person 3]
+      // [0] project 3 : [person 1, person 2, person 3]
+      setHoursArray(hours)
+      setDataParsed(true)
+  }
+
+  if(data !== null && dataParsed === true){
+    let datasets = [];
+
+    for(let i = 0; i < data.projectsArray.length; i++){
+      let projectName = data.projectsArray[i];
+      let projectData = {};
+      projectData.label = projectName;
+      projectData.data = hoursArray[i];
+      projectData.backgroundColor = chartColors[i] || "white";
+      datasets.push(projectData)
+
+    }
+
+    chartData = {
+      labels: employeeList,
+      datasets: datasets
+    };
   }
 
 
-  const chartData = {
-    labels: employeeList,
-    datasets: [
-      { label: "Project 1", data: hoursArray[0], backgroundColor: "red" },
-      { label: "Project 2", data: hoursArray[1], backgroundColor: "blue" },
-      { label: "Project 3", data: hoursArray[2], backgroundColor: "green" },
-    ],
-  };
 
-  return (
+  return ( chartData &&
     <div className='people-dept'>
-      <Bar
+       <Bar
         data={chartData}
         width={100}
         height={50}
@@ -60,7 +78,7 @@ const People = () => {
           },
         }}
       />
-      <hr/>
+
     </div>
   );
 };

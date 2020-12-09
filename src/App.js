@@ -14,13 +14,29 @@ import * as XLSX from 'xlsx';
 const App = () => {
   const dataContext = useContext(DataContext);
   const { setInitialState, data, importData, importedData,processData } = dataContext;
-  const [personData, setPersonData] = useState("person-1");
-  const [projectData, setProjectData] = useState("project-1");
+  // const [personData, setPersonData] = useState("person-1");
+
+  const [personData, setPersonData] = useState("");
+
+
+  // const [projectData, setProjectData] = useState("project-1");
+
+  const [projectData, setProjectData] = useState("");
+
   const [fileData, getFileData] = useState([]);
 
-  useEffect(() => {
-    setInitialState(STORE);
-  }, []);
+  // useEffect(() => {
+  //   setInitialState(data);
+
+  // }, [data]);
+
+  if(data !== null && personData === ""){
+    setPersonData(data.peopleArray[0])
+  }
+
+  if(data !== null && personData === ""){
+    setProjectData(data.projectsArray[0])
+  }
 
   const personChangeHandler = (person) => {
     setPersonData(person);

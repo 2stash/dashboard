@@ -4,7 +4,6 @@ import DataContext from "../../context/data/dataContext";
 const Person = (props) => {
   const dataContext = useContext(DataContext);
   const { data } = dataContext;
-
   return (
     <div className='people'>
       <h3 className='personnel-title'>{props.name}</h3>

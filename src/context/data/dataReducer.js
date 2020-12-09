@@ -18,7 +18,7 @@ export default(state, action) => {
     case BUILD_DASHBOARD:
       return {
         ...state,
-        processedData: payload,
+        data: payload,
         loading: false,
       }
     default: 
