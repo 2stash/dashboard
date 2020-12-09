@@ -3,8 +3,10 @@ import DataContext from "../../context/data/dataContext";
 
 const Project = (props) => {
   const dataContext = useContext(DataContext);
-  const { data } = dataContext;
+  const { data, processedData } = dataContext;
 
+  console.log(data)
+  console.log(processedData)
   return (
     <div className='project'>
       <h3 className='personnel-title'>{props.name}</h3>

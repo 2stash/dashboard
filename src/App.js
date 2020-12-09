@@ -13,7 +13,7 @@ import * as XLSX from 'xlsx';
 
 const App = () => {
   const dataContext = useContext(DataContext);
-  const { setInitialState, data, importData } = dataContext;
+  const { setInitialState, data, importData, importedData,processData } = dataContext;
   const [personData, setPersonData] = useState("person-1");
   const [projectData, setProjectData] = useState("project-1");
   const [fileData, getFileData] = useState([]);
@@ -52,6 +52,7 @@ const App = () => {
           let data = XLSX.utils.sheet_to_json(ws)
   
           resolve([data, wsname])
+          // resolve(data)
         }
   
         fileReader.onerror = ((error)=>{
@@ -62,12 +63,13 @@ const App = () => {
       promise.then((info)=> {
         let data = info[0]
         let wsname = info[1]
+ 
         uploadedFilesDataArray.push([data,wsname])
-      })
-        getFileData(uploadedFilesDataArray)
-        importData(uploadedFilesDataArray)
+       })
 
     }
+
+    importData(uploadedFilesDataArray)
 
 
     // const promise = new Promise((resolve, reject) => {
@@ -102,12 +104,16 @@ const App = () => {
     // })
   }
 
+  const buildDashboard = () => {
+    processData(importedData)
+  }
 
   return (
     <Router>
       <nav className='main-nav'>
         <h2>Dan's DashBoard</h2>
         <input type="file" onChange={readExcel} multiple/>
+        <button onClick={buildDashboard}>Build Dashboard</button>
       </nav>
       <div className='container'>
         <div className='wrapper'>
