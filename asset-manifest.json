@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/dashboard/static/css/main.2559b35b.chunk.css",
-    "main.js": "/dashboard/static/js/main.6a918c83.chunk.js",
-    "main.js.map": "/dashboard/static/js/main.6a918c83.chunk.js.map",
+    "main.css": "/dashboard/static/css/main.e29ebb26.chunk.css",
+    "main.js": "/dashboard/static/js/main.bedce2f3.chunk.js",
+    "main.js.map": "/dashboard/static/js/main.bedce2f3.chunk.js.map",
     "runtime-main.js": "/dashboard/static/js/runtime-main.f5ff81df.js",
     "runtime-main.js.map": "/dashboard/static/js/runtime-main.f5ff81df.js.map",
     "static/js/2.6c688fcd.chunk.js": "/dashboard/static/js/2.6c688fcd.chunk.js",
     "static/js/2.6c688fcd.chunk.js.map": "/dashboard/static/js/2.6c688fcd.chunk.js.map",
     "index.html": "/dashboard/index.html",
-    "static/css/main.2559b35b.chunk.css.map": "/dashboard/static/css/main.2559b35b.chunk.css.map",
-    "static/js/2.6c688fcd.chunk.js.LICENSE.txt": "/dashboard/static/js/2.6c688fcd.chunk.js.LICENSE.txt"
+    "static/css/main.e29ebb26.chunk.css.map": "/dashboard/static/css/main.e29ebb26.chunk.css.map",
+    "static/js/2.6c688fcd.chunk.js.LICENSE.txt": "/dashboard/static/js/2.6c688fcd.chunk.js.LICENSE.txt",
+    "static/media/excel.6019f20b.PNG": "/dashboard/static/media/excel.6019f20b.PNG",
+    "static/media/herodashboard.9e096cb9.gif": "/dashboard/static/media/herodashboard.9e096cb9.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.f5ff81df.js",
     "static/js/2.6c688fcd.chunk.js",
-    "static/css/main.2559b35b.chunk.css",
-    "static/js/main.6a918c83.chunk.js"
+    "static/css/main.e29ebb26.chunk.css",
+    "static/js/main.bedce2f3.chunk.js"
   ]
 }
