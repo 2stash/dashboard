@@ -11,6 +11,91 @@
   padding: 0;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-container,
+.landing-hero-container,
+.how-to-use {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.landing-hero-container {
+  margin-bottom: 100px;
+}
+.landing-hero-text {
+  margin-top: 100px;
+  margin-bottom: 25px;
+  font-size:74px;
+}
+
+.landing-sub-text {
+  max-width: 512px;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.margin-top {
+  margin-top: 50px;
+}
+
+.how-to-use,
+.how-to-use-table {
+  margin-bottom: 25px;
+}
+
+.how-to-use-hero {
+  margin-bottom: 25px;
+}
+
+.excel-img {
+  max-width: 540px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+}
+
+.icons {
+  margin: 25px;
+}
+
+.fa-file-excel,
+.fa-user {
+  margin: 8px;
+}
+
+.icon-excel {
+  font-size: 48px;
+  color: green;
+}
+
+.icon-person, 
+.icon-arrow {
+  font-size: 48px;
+}
+
+.combine-files {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items: center;
+}
+
+.image-gif {
+  width: 600px;
+}
+
+
 table {
   width: 100%;
   border-collapse: collapse;
