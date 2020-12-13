@@ -23,7 +23,7 @@
 body {
   width: 100%;
   /* position:fixed; */
-  background-color: var(--dark-color);
+
 }
 
 ul {
@@ -36,6 +36,17 @@ a {
 
 li {
   list-style: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
 }
 
 .container {
@@ -58,6 +69,7 @@ li {
   z-index: 1;
   width: 100%;
   top: 0;
+  background-color: var(--dark-color);
 }
 
 .logo {
@@ -89,6 +101,20 @@ li {
 .main-nav a:hover {
   color: var(--primary-color);
 }
+
+.btn-reset {
+  background-color: var(--danger-color);
+  min-height: 40px;
+  min-width: 150px;
+  color: white;
+}
+
+.btn-reset:hover {
+  cursor: pointer;
+  color: var(--yellow-color)
+}
+
+
 /* main nav end */
 
 /* Landing page start --------- */
@@ -358,18 +384,14 @@ li {
 
 
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+
+
+/* DashBoard Page Start*/
+.dashboard-bg-color {
+  background-color: var(--grey-color);
 }
 
-td, th {
-  border: 1px solid #999;
-  padding: 0.5rem;
-  text-align: left;
-}
 
-/* DashBoard Page */
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
@@ -377,7 +399,7 @@ td, th {
 }
 
 .wrapper > * {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   padding: 10px;
 }
 
@@ -392,13 +414,27 @@ td, th {
 .title {
   color: var(--background-color);
   width: 100%;
+  text-align: center;
+  margin-bottom:8px;
 }
+
+.nav-btn {
+  display: block;
+  width: 100%;
+  min-height: 25px;
+}
+
+.nav-btn:hover {
+  cursor: pointer;
+}
+
 
 .project-nav {
   background-color: var(--background-color);
 }
 
-.project-nav ul {
+.project-nav ul,
+.people-nav ul {
   display:flex;
   justify-content: center;
   align-items: center;
@@ -409,7 +445,8 @@ td, th {
   width:100%;
 }
 
-.project-nav li{
+.project-nav li,
+.people-nav li{
   width: 100%;
 }
 
@@ -459,6 +496,13 @@ td, th {
   box-shadow: 10px 14px 15px -13px rgba(156,194,255,1);
 }
 
+.people,
+.project,
+.project-dept,
+.people-dept {
+  background-color: white;
+}
+
 .personnel-title {
   width: 100%;
   background-color: var(--nav-color);
@@ -466,6 +510,11 @@ td, th {
   color: var(--background-color);
   padding: 8px;
 }
+
+.project {
+  background-color: white;
+}
+
 
 
 .main-footer {

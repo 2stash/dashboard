@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState, Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 
+
 import DataContext from "./context/data/dataContext";
 
 import Person from "./components/data/Person";
@@ -69,9 +70,9 @@ const App = () => {
           </li>
       
         </ul> */}
-        {data && <button onClick={handleResetData}>Reset Data</button>}
+        {data && <button className="btn-reset" onClick={handleResetData}>Reset Data</button>}
       </nav>
-      <div >
+      <div className="dashboard-bg-color">
         {data ? (
           <div className='wrapper'>
             <nav className='people-nav'>
