@@ -1,14 +1,41 @@
 :root {
   --nav-color: #333333;
-  --background-color: #ffffff;
+  --background-color: #faf3dd;
   --background-dark: #1b283b;
+  --btn-color: #118ab2;
+  --btn-border: #073b4c;
 
+  /* set one */
+  --dark-color: #073b4c;
+  --blue-color: #118ab2;
+  --success-color: #06d6a0;
+  --yellow-color: #ffd166;
+  --danger-color: #ef476f;
+  --grey-color: #d8e2dc;
+  --dark-grey-color: 
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+  width: 100%;
+  /* position:fixed; */
+  background-color: var(--dark-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 .container {
@@ -17,21 +44,115 @@
   align-items: center;
 }
 
-.landing-container,
-.landing-hero-container,
-.how-to-use {
+
+/* main nav bar start */
+.main-nav {
+
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  color: white;
+  padding: 0.7rem 2rem;
+  /* position: fixed; */
+  z-index: 1;
+  width: 100%;
+  top: 0;
+}
+
+.logo {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 3px;
+  margin: 5px;
+}
+
+.logo-div {
+  margin-left: 10px;
+  } 
+
+.main-nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.main-nav a {
+  color: white;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size:14px;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
+}
+/* main nav end */
+
+/* Landing page start --------- */
+/* Section 1 Left*/
+.landing-container {
+  background-color: white ;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* height: 100%;
+  width:100%; */
+
 }
+
+.grey {
+  background-color: var(--grey-color);
+  width: 100%;
+  min-height: 450px;
+  /* height: 100%; */
+
+}
+
 .landing-hero-container {
-  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+  height: 100%;
+  width:100%;
 }
+
+.how-to-use {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+
+.how-to-use {
+  height: 100vh;
+}
+
+.landing-left,
+.second-landing-right {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+
+.landing-left {
+  /* height: 1000px; */
+  width:90%;
+  margin-bottom:10px;
+}
+
 .landing-hero-text {
-  margin-top: 100px;
+  /* margin-top: 100px; */
   margin-bottom: 25px;
-  font-size:74px;
+  font-size:48px;
+  text-align:center;
 }
 
 .landing-sub-text {
@@ -41,28 +162,70 @@
   text-align: center;
 }
 
-.margin-top {
-  margin-top: 50px;
+.landing-buttons-container {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  /* height: 100%; */
+  max-height:150px;
+
 }
 
-.how-to-use,
-.how-to-use-table {
-  margin-bottom: 25px;
+.landing-buttons-card {
+ display:flex;
+ flex-direction: column;
+ align-items: center;
+ /* position: relative; */
+ padding: 12px;
+ /* height: 150px; */
+ color:white;
+ background-color: var(--blue-color);
+ border-radius: 15px;
+ margin:8px;
+ width:500px;
+ text-align: center;
 }
 
-.how-to-use-hero {
-  margin-bottom: 25px;
+.landing-buttons-card h4 {
+  color: var(--yellow-color)
 }
 
-.excel-img {
-  max-width: 540px;
-}
-
-.flex {
+.btn-input {
   display: flex;
   justify-content: center;
-  align-items: start;
-  gap: 20px;
+  align-items: center;
+
+}
+
+.landing-buttons-card h4 {
+  margin-bottom: 15px;
+}
+
+/* .landing-buttons-card button {
+  position: absolute;
+  bottom: 0;
+} */
+
+/* .landing-buttons-card input {
+  position: absolute;
+  bottom: 50px;
+} */
+
+/* Section 1 left end */
+/* Section 1 right start */
+.landing-right {
+
+  display:none;
+}
+
+.combine-files {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items: center;
+  width: 100%;
 }
 
 .icons {
@@ -84,16 +247,115 @@
   font-size: 48px;
 }
 
-.combine-files {
-  display: flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items: center;
+.image-gif {
+  width: 400px;
+  margin-left:8px;
 }
 
-.image-gif {
-  width: 600px;
+/* Section 1 right end */
+/* Section 2 left start */
+.how-to-use,
+.how-to-use-table {
+  margin-bottom: 25px;
+  max-width: 90%;
 }
+
+.margin-top {
+  margin-top: 50px;
+}
+
+.second-landing-left {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+
+.second-landing-left-size {
+  width: 90%;
+  height: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yellow-color);
+}
+
+.how-to-use-hero {
+  margin-bottom: 25px;
+}
+
+.table-head {
+  background-color: white;
+}
+.excel-img {
+  max-width: 90%;
+  margin:20px;
+}
+
+/* Section 2 left end */
+/* Section 2 right start */
+.second-landing-right-size {
+  width: 90%;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--success-color);
+}
+
+.second-landing-right-title {
+  font-size: 36px;
+}
+
+/* Section 2 right end */
+/* Landing page End ----- */
+
+.btn {
+  background-color: var(--btn-color);
+  color: white;
+  margin: .5em 1em;
+  padding: .5em 1em;
+  border: none;
+  outline: none;
+  /* position: relative; */
+  cursor: pointer;
+
+}
+
+.btn-border-pop {
+  background-color: var(--success-color);
+  height: 50px;
+  border-radius: 20px;
+}
+
+/* .btn.btn-border-pop::before {
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: -1;
+  border: 2px solid var(--btn-border);
+  transition: top, left, right, bottom, 100ms ease-in-out;
+} */
+
+/* .btn.btn-border-pop:hover::before,
+.btn.btn-border-pop:focus::before {
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+} */
+
 
 
 table {
@@ -107,6 +369,18 @@ td, th {
   text-align: left;
 }
 
+/* DashBoard Page */
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  font: 1.2em Helvetica, arial, sans-serif;
+}
+
+.wrapper > * {
+  background-color: var(--background-color);
+  padding: 10px;
+}
+
 .title-div {
   width: 100%;
   display:flex;
@@ -118,40 +392,13 @@ td, th {
 .title {
   color: var(--background-color);
   width: 100%;
-
 }
 
-li {
-  list-style: none;
-}
-
-
-.wrapper {
-  max-width: 1400px;
-  margin: 0 auto;
-  font: 1.2em Helvetica, arial, sans-serif;
-}
-
-.wrapper > * {
-
+.project-nav {
   background-color: var(--background-color);
-  padding: 10px;
 }
 
-.main-nav {
-  height: 50px;
-  color: var(--background-color);
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-nav {
-  background-color: var(--nav-color);
-}
-
-nav ul {
+.project-nav ul {
   display:flex;
   justify-content: center;
   align-items: center;
@@ -162,11 +409,11 @@ nav ul {
   width:100%;
 }
 
-nav li{
+.project-nav li{
   width: 100%;
 }
 
-.nav-btn {
+.project-nav-btn {
   width: 100%;
   height: 30px;
   font-size: 18px;
@@ -264,7 +511,74 @@ nav li{
       "project-nav project project-dept"
       "footer footer footer";
   }
+
   nav ul {
     flex-direction: column;
+  }
+
+  .landing-right {
+    margin-top:150px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height:100%;
+  }
+
+  .grey {
+    min-height: 100vh;
+  
+  }
+
+  .landing-buttons-card {
+    height: 150px;
+   }
+}
+
+@media(min-width: 1100px){
+  /* .landing-right {
+    margin-top:75px;
+
+  } */
+
+}
+
+
+@media(min-width: 1500px) {
+  .landing-hero-text {
+    margin-top: 100px;
+    margin-bottom: 25px;
+    font-size:74px;
+  }
+  
+  .landing-sub-text {
+    max-width: 512px;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+  }
+  
+.how-to-use {
+
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.landing-right {
+  margin-top:25px;
+
+}
+}
+
+
+@media (max-width: 700px) {
+ 
+
+  .main-nav {
+    flex-direction: column;
+  }
+  .main-nav ul {
+    width: 90%;
   }
 }
